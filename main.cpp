@@ -3,6 +3,7 @@
 #include "include/AccountManager.h"
 #include "include/Expense.h"
 #include "include/Search.h"
+#include "include/Budget.h"
 #include "include/Report.h"
 #include "include/ExportManager.h"
 
@@ -15,6 +16,8 @@ int main()
 
     Expense expense;
     Search search;
+
+    Budget budget;
 
     Report report;
     ExportManager exportManager;
@@ -153,12 +156,52 @@ int main()
             }
 
             case 3:
-                cout << "\nCategory Management Module Coming Soon...\n";
+                cout << "\nCategory Module Coming Soon...\n";
                 break;
 
             case 4:
-                cout << "\nBudget Management Module Coming Soon...\n";
+            {
+                int budgetChoice;
+
+                cout << "\n====================================";
+                cout << "\n       Budget Management";
+                cout << "\n====================================";
+                cout << "\n1. Set Budget";
+                cout << "\n2. Add Expense";
+                cout << "\n3. View Budget";
+                cout << "\n4. Reset Budget";
+                cout << "\n5. Back";
+
+                cout << "\n\nEnter Choice: ";
+                cin >> budgetChoice;
+
+                switch(budgetChoice)
+                {
+                    case 1:
+                        budget.setBudget();
+                        break;
+
+                    case 2:
+                        budget.addExpense();
+                        break;
+
+                    case 3:
+                        budget.displayBudget();
+                        break;
+
+                    case 4:
+                        budget.resetBudget();
+                        break;
+
+                    case 5:
+                        break;
+
+                    default:
+                        cout << "\nInvalid Choice!\n";
+                }
+
                 break;
+            }
 
             case 5:
             {
