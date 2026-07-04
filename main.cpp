@@ -3,8 +3,13 @@
 #include "include/AccountManager.h"
 #include "include/Expense.h"
 #include "include/Search.h"
+#include "include/Category.h"
+#include "include/TagManager.h"
+#include "include/Budget.h"
 #include "include/Report.h"
 #include "include/ExportManager.h"
+#include "include/Analytics.h"
+#include "include/FileManager.h"
 
 using namespace std;
 
@@ -16,8 +21,16 @@ int main()
     Expense expense;
     Search search;
 
+    Category category;
+    TagManager tagManager;
+
+    Budget budget;
+
     Report report;
     ExportManager exportManager;
+
+    Analytics analytics;
+    FileManager fileManager;
 
     int choice;
 
@@ -153,13 +166,107 @@ int main()
             }
 
             case 3:
-                cout << "\nCategory Management Module Coming Soon...\n";
+            {
+                int categoryChoice;
+
+                cout << "\n====================================";
+                cout << "\n     Category Management";
+                cout << "\n====================================";
+                cout << "\n1. Add Category";
+                cout << "\n2. View Category";
+                cout << "\n3. Edit Category";
+                cout << "\n4. Delete Category";
+                cout << "\n5. Add Tag";
+                cout << "\n6. View Tag";
+                cout << "\n7. Remove Tag";
+                cout << "\n8. Back";
+
+                cout << "\n\nEnter Choice: ";
+                cin >> categoryChoice;
+
+                switch(categoryChoice)
+                {
+                    case 1:
+                        category.addCategory();
+                        break;
+
+                    case 2:
+                        category.viewCategory();
+                        break;
+
+                    case 3:
+                        category.editCategory();
+                        break;
+
+                    case 4:
+                        category.deleteCategory();
+                        break;
+
+                    case 5:
+                        tagManager.addTag();
+                        break;
+
+                    case 6:
+                        tagManager.viewTag();
+                        break;
+
+                    case 7:
+                        tagManager.removeTag();
+                        break;
+
+                    case 8:
+                        break;
+
+                    default:
+                        cout << "\nInvalid Choice!\n";
+                }
+
                 break;
+            }
 
             case 4:
-                cout << "\nBudget Management Module Coming Soon...\n";
-                break;
+            {
+                int budgetChoice;
 
+                cout << "\n====================================";
+                cout << "\n      Budget Management";
+                cout << "\n====================================";
+                cout << "\n1. Set Budget";
+                cout << "\n2. Add Expense";
+                cout << "\n3. View Budget";
+                cout << "\n4. Reset Budget";
+                cout << "\n5. Back";
+
+                cout << "\n\nEnter Choice: ";
+                cin >> budgetChoice;
+
+                switch(budgetChoice)
+                {
+                    case 1:
+                        budget.setBudget();
+                        break;
+
+                    case 2:
+                        budget.addExpense();
+                        break;
+
+                    case 3:
+                        budget.displayBudget();
+                        break;
+
+                    case 4:
+                        budget.resetBudget();
+                        break;
+
+                    case 5:
+                        break;
+
+                    default:
+                        cout << "\nInvalid Choice!\n";
+                }
+
+                break;
+            }
             case 5:
             {
                 int reportChoice;
@@ -225,8 +332,63 @@ int main()
             }
 
             case 6:
-                cout << "\nAnalytics Module Coming Soon...\n";
+            {
+                int analyticsChoice;
+
+                cout << "\n====================================";
+                cout << "\n        Analytics Module";
+                cout << "\n====================================";
+                cout << "\n1. Spending Analysis";
+                cout << "\n2. Monthly Insights";
+                cout << "\n3. Yearly Insights";
+                cout << "\n4. Expense Trend";
+                cout << "\n5. Save Data";
+                cout << "\n6. Load Data";
+                cout << "\n7. Backup Data";
+                cout << "\n8. Back";
+
+                cout << "\n\nEnter Choice: ";
+                cin >> analyticsChoice;
+
+                switch(analyticsChoice)
+                {
+                    case 1:
+                        analytics.spendingAnalysis();
+                        break;
+
+                    case 2:
+                        analytics.monthlyInsights();
+                        break;
+
+                    case 3:
+                        analytics.yearlyInsights();
+                        break;
+
+                    case 4:
+                        analytics.expenseTrend();
+                        break;
+
+                    case 5:
+                        fileManager.saveData();
+                        break;
+
+                    case 6:
+                        fileManager.loadData();
+                        break;
+
+                    case 7:
+                        fileManager.backupData();
+                        break;
+
+                    case 8:
+                        break;
+
+                    default:
+                        cout << "\nInvalid Choice!\n";
+                }
+
                 break;
+            }
 
             case 7:
                 cout << "\nThank you for using SpendSense!\n";
