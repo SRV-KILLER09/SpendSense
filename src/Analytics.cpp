@@ -3,10 +3,22 @@
 
 using namespace std;
 
-void Analytics::showSummary(Transaction &t)
+void Analytics::spendingAnalysis()
 {
-    cout << "\n----- Analytics -----" << endl;
-    cout << "Total Income  : " << t.income << endl;
-    cout << "Total Expense : " << t.expense << endl;
-    cout << "Balance       : " << t.income - t.expense << endl;
+    cout << "\nGenerating Spending Analysis...\n";
+}
+
+void Analytics::monthlyInsights()
+{
+    cout << "\nDisplaying Monthly Insights...\n";
+}
+
+void Analytics::yearlyInsights()
+{
+    cout << "\nDisplaying Yearly Insights...\n";
+}
+
+void Analytics::expenseTrend()
+{
+    cout << "\nShowing Expense Trend...\n";
 }
